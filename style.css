@@ -5,7 +5,7 @@
     --LizardGradient: hsl(261, 73%, 60%);
     --Cyan: hsl(189, 59%, 53%);
     --White: #FFF;
-
+    --BorderColor: rgba(255, 255, 255, .3);
     --DarkText: hsl(229, 25%, 31%);
     --ScoreText: hsl(229, 64%, 46%);
     --HeaderOutline: hsl(217, 16%, 45%);
@@ -73,10 +73,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 1rem;
     border: 3px solid var(--HeaderOutline);
     border-radius: .5rem;
     padding: .5rem;
-    margin: 1rem;
 }
 
 header div {
@@ -137,6 +139,9 @@ main {
   border-color: var(--ScissorsGradient);
   position: relative;
   top: 50px;
+  -webkit-box-shadow: 10px 10px 56px 0px rgba(236,158,14,0.4);
+  -moz-box-shadow: 10px 10px 56px 0px rgba(236,158,14,0.4);
+  box-shadow: 10px 10px 56px 0px rgba(236,158,14,0.4);
 }
 
 .spock-paper {
@@ -149,6 +154,9 @@ main {
   position: relative;
   top: 30px;
   right: 10px;
+  -webkit-box-shadow: 10px 10px 56px 0px rgba(64,185,206,0.4);
+  -moz-box-shadow: 10px 10px 56px 0px rgba(64,185,206,0.4);
+  box-shadow: 10px 10px 56px 0px rgba(64,185,206,0.4);
 }
 
 .paper {
@@ -156,6 +164,9 @@ main {
   position: relative;
   top: 30px;
   left: 10px;
+  -webkit-box-shadow: 10px 10px 56px 0px rgba(72,101,244,0.4);
+  -moz-box-shadow: 10px 10px 56px 0px rgba(72,101,244,0.4);
+  box-shadow: 10px 10px 56px 0px rgba(72,101,244,0.4);
 }
 
 .lizard-rock {
@@ -168,6 +179,9 @@ main {
   position: relative;
   top: 50px;
   left: 30px;
+  -webkit-box-shadow: 10px 10px 56px 0px rgba(131,79,227, .4);
+  -moz-box-shadow: 10px 10px 56px 0px rgba(131,79,227, .4);
+  box-shadow: 10px 10px 56px 0px rgba(131,79,227, .4);
 }
 
 .rock {
@@ -175,4 +189,57 @@ main {
   position: relative;
   top: 50px;
   right: 30px;
+  -webkit-box-shadow: 10px 10px 56px 0px rgba(220,46,78,0.4);
+  -moz-box-shadow: 10px 10px 56px 0px rgba(220,46,78,0.4);
+  box-shadow: 10px 10px 56px 0px rgba(220,46,78,0.4);}
+
+
+.animation::after, .animation::before {
+  content: "";
+  z-index: -1;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--BorderColor);
+  top: -9px;
+  left: -9px;
+  right: -9px;
+  bottom: -9px;
+  animation: animacao 2.0s linear;
+  animation-iteration-count: 1;
+
+}
+
+
+@keyframes animacao {
+  0% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+footer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+footer p {
+  color: var(--White);
+  text-transform: uppercase;
+  border: 1px solid var(--White);
+  border-radius: 10px;
+  padding: .5rem 2rem;
+}
+
+footer p:hover {
+  color: var(--ScoreText);
+  background-color: var(--White);
 }
